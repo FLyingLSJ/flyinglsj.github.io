@@ -1,6 +1,6 @@
 ---
 layout: post
-title: OpenCV 系列教程2 | OpenCV 的 GUI 特性
+title: OpenCV 系列教程 2 | OpenCV 的 GUI 特性
 date: 2019-1-27 
 tag: OpenCV 教程
 
