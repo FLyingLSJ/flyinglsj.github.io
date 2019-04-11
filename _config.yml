@@ -22,8 +22,9 @@ avatarDesc: 大数据 / 机器学习
 
 # 百度统计 
 # 使用博客模板请去掉或者更换 id 
-#baidu:
+baidu:
     #id: 8ba1c6be0953b6f9c2ba38e57f615421  
+    id: c1e88dc5d00b6cef7e87cb0acd567195    
 
 # Google Analytics
 # 使用博客模板请去掉或者更换 id
