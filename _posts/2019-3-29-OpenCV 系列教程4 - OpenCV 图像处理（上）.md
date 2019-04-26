@@ -56,7 +56,12 @@ HSV的色相范围为[0,179]，饱和度范围为[0,255]，值范围为[0,255]�
 #### 目标跟踪
 
 HSV 和 HLV 解释
+
+(image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/400px-Hsl-hsv_models.svg.png)
+
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Hsl-hsv_models.svg/400px-Hsl-hsv_models.svg.png)
+
+
 
 
 ```python
@@ -138,7 +143,7 @@ cv2.destroyAllWindows()
 #### 如何找到要跟踪的 HSV 值?
 [菜鸟教程 在线 HSV-> BGR 转换] (https://c.runoob.com/front-end/868)
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0z3dvyykij20ap092410.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0z3dvyykij20ap092410.jpg)
 
 
 ```python
@@ -256,9 +261,9 @@ cv2.THRESH_TOZERO_INV # 与上面相反，若源像素大于阈值，设置为 0
 - retval: 下面介绍
 - dst: 得到的图像
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzs9quix4pj20ez0dpacm.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzs9quix4pj20ez0dpacm.jpg)
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzs9s01sd6j20fz0f977y.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzs9s01sd6j20fz0f977y.jpg)
 
 
 ```python
@@ -1019,7 +1024,7 @@ cv2.destroyAllWindows()
 说明：中值滤波在一定条件下，可以克服线性滤波器（如均值滤波等）所带来的图像细节模糊，而且对滤除脉冲干扰即图像扫描噪声最为有效。在实际运算过程中并不需要图像的统计特性，也给计算带来不少方便。**但是对一些细节多，特别是线、尖顶等细节多的图像不宜采用中值滤波。**
 
 ###### 程序说明原理
-![](https://ws1.sinaimg.cn/large/acbcfa39ly1fzz2587fxwj20dg08a761.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39ly1fzz2587fxwj20dg08a761.jpg)
 
 > 疑问？ 图像的边缘中值滤波是如何处理的？
 
@@ -1431,7 +1436,7 @@ cv2.destroyAllWindows()
 #### 距离变换
 
 直观的图，距离变换处理的是二值图像
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0xs4pohs5j20dj055wec.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0xs4pohs5j20dj055wec.jpg)
 
 
 `distanceTransform(src, distanceType, maskSize[, dst[, dstType]]) -> dst`
@@ -1623,9 +1628,9 @@ img.shape, down.shape, up.shape
 
 ##### 基本原理
 
-![第一步](https://ws1.sinaimg.cn/large/acbcfa39gy1g0jnyo8h9xj20d70ciq3u.jpg)
-![第二步](https://ws1.sinaimg.cn/large/acbcfa39gy1g0jtlf1rw0j20cg0bidgu.jpg)
-![第三步](https://ws1.sinaimg.cn/large/acbcfa39gy1g0jtm2svkbj20cg0fi0uc.jpg)
+![第一步](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0jnyo8h9xj20d70ciq3u.jpg)
+![第二步](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0jtlf1rw0j20cg0bidgu.jpg)
+![第三步](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0jtm2svkbj20cg0fi0uc.jpg)
 
 ##### 分步例程
 

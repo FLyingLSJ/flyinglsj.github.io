@@ -135,7 +135,7 @@ cv2.destroyAllWindows()
 
 ### 凸包检测及其他轮廓特征
 
-![](https://ws1.sinaimg.cn/large/acbcfa39ly1g0voy2sm32j207r08qt92.jpg)
+![](image/2019-3-29-OpenCV 系列教程6 - OpenCV 图像处理（下）/acbcfa39ly1g0voy2sm32j207r08qt92.jpg)
 
 `convexHull(points[, hull[, clockwise[, returnPoints]]]) -> hull`       
 - points: 输入的二维点集

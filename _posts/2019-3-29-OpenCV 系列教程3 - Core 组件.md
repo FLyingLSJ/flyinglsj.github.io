@@ -10,9 +10,9 @@ tag: OpenCV 教程
 ### 基本知识
 
 - 灰度图像的存储方式：
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzpudsb595j20gc05u0uk.jpg)
+![](image/2019-3-29-OpenCV 系列教程3 - Core 组件/acbcfa39gy1fzpudsb595j20gc05u0uk.jpg)
 - 多通道图像存储方式
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzpueh59f1j20ln05cgno.jpg)
+![](image/2019-3-29-OpenCV 系列教程3 - Core 组件/acbcfa39gy1fzpueh59f1j20ln05cgno.jpg)
 
 OpenCV 中的通道存储为 BGR
 

@@ -24,11 +24,11 @@ tag: Linux
 
 1. Linux 与 Unix 的关系
 
-![](http://ww1.sinaimg.cn/large/acbcfa39ly1fyvw41gs1wj20r00epqa0.jpg)
+![](image/2019-1-5-Linux_tutorial1/acbcfa39ly1fyvw41gs1wj20r00epqa0.jpg)
 
 
 
-![2](http://ww1.sinaimg.cn/large/acbcfa39ly1fyvw41iiskj20nl0fb10z.jpg)
+![2](image/2019-1-5-Linux_tutorial1/acbcfa39ly1fyvw41iiskj20nl0fb10z.jpg)
 
 2. 安装 VM 与 CentOS 
 
@@ -42,7 +42,7 @@ tag: Linux
 
 `仅主机模式`：不会造成 IP 冲突，但是不能访问外网
 
-![](http://ww1.sinaimg.cn/large/acbcfa39ly1fyvx37ga1uj20jo089q3p.jpg)
+![](image/2019-1-5-Linux_tutorial1/acbcfa39ly1fyvx37ga1uj20jo089q3p.jpg)
 
 3. 安装 vmtools 
 
@@ -61,7 +61,7 @@ vmtools 安装后，可以让我们在windows下更好的管理vm虚拟机
   - 在物理机新建一个文件夹
   - 虚拟机-设置
 
-![](http://ww1.sinaimg.cn/large/acbcfa39gy1fyvxcx5i8zj20qj0a4gmt.jpg)
+![](image/2019-1-5-Linux_tutorial1/acbcfa39gy1fyvxcx5i8zj20qj0a4gmt.jpg)
 
 
 
