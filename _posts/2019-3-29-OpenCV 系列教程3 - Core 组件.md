@@ -850,10 +850,8 @@ Python 标量操作比 Numpy 标量操作快。因此对于包含一个或两个
 即使在执行了所有这些操作之后，如果代码仍然很慢，或者不可避免地要使用大型循环，那么可以使用其他库，比如Cython来加快速度。
 
 #### 更多资料
-[Python Optimization Techniques]
-(https://wiki.python.org/moin/PythonSpeed/PerformanceTips)、
-Scipy Lecture Notes - [Advanced Numpy]
-(http://scipy-lectures.org/advanced/advanced_numpy/index.html#advanced-numpy)
+[Python Optimization Techniques](https://wiki.python.org/moin/PythonSpeed/PerformanceTips)、
+Scipy Lecture Notes - [Advanced Numpy](http://scipy-lectures.org/advanced/advanced_numpy/index.html#advanced-numpy)
 time profile 模块
 
 

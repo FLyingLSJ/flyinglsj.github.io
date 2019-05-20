@@ -80,9 +80,6 @@ plt.show()
 ```
 
 
-![png](output_11_0.png)
-
-
 OpenCV 加载的彩色图像为 BGR 模式。但是 Matplotlib 以 RGB 模式显示。因此，如果使用 OpenCV 读取图像，Matplotlib 中的彩色图像将不能正确显示。
 
 以下是解决办法：对图像的模式进行转换，使之与 Matplotlib 或 OpenCV 匹配
@@ -103,9 +100,6 @@ cv2.imshow('rgb image',img_matplot) # 预计是真实的图像
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
-
-
-![png](output_13_0.png)
 
 
 ![](https://ws1.sinaimg.cn/large/acbcfa39ly1fzkg0z3gt3j20cp059tbh.jpg)

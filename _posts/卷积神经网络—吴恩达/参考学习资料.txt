@@ -1,0 +1,5 @@
+https://mooc.study.163.com/university/deeplearning_ai#/c
+
+
+卷积神经网络
+5.19 已经完成第一周的内容，还剩 3 周的内容，争取两周内学完
