@@ -13,7 +13,9 @@ https://blog.csdn.net/qq_15698613/article/details/86502371
 `settings->Editor->Font`
 
 - Font: Courier New 
-- Fallback font: DFKai-SB
+- Fallback font: DFKa
+- 
+- i-SB
 
 ### 提示信息设置
 

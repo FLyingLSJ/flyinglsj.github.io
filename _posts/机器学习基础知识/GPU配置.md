@@ -71,3 +71,32 @@ cuDNN
 ### 他人配置
 
 ![](https://img-blog.csdn.net/20180705145135598?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Mzc0MjEx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+### 我的配置
+
+GPU:<https://item.jd.com/4016045.html#none> 1080TI × 2
+
+- 接口类型 PCI-E 3.0
+- 功率：600w（一台）
+- 供电需求：8pin*2（一台）
+
+CPU：<https://item.jd.com/100000634417.html#crumb-wrap> i7 9700k （自营）
+
+- 功率 95W
+- 接口类型 LGA 1151
+
+主板：
+
+​	1. <https://item.jd.com/44760984978.html#crumb-wrap> ：（非自营）
+
+2. <https://item.jd.com/100004918578.html#crumb-wrap>（自营） **技嘉（GIGABYTE）Z390 AORUS ULTRA 主板 + 英特尔 i7-9700KF 板 U 套装 / 主板 + CPU 套装**
+
+- 接口类型 PCI-E 3.0
+- 板型结构 ATX
+- 兼容系列 支持 LGA1151 插槽九代处理器及第八代处理器
+
+机箱：<https://item.jd.com/1209630.html#crumb-wrap> （自营）
+
+- 主板兼容 XL-ATX、E-ATX、**ATX**、M-ATX、MINI-ITX
+
+  
