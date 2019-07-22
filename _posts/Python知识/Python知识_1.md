@@ -1,4 +1,4 @@
-- 变量大小写字母、数字、下划线且开头不能使用数字，大小写敏感
+- 变量定义：大小写字母、数字、下划线且开头不能使用数字，大小写敏感
 - type isinstance 判断数据类型
 - 列表索引 [start, stop, step] 且索引的最后位置不在返回的结果中
 - 元组不可改变
@@ -19,3 +19,6 @@
     – `w+` / `wb+`：`writing` & `reading`。在 `w+` / `wb+` 的基础上多了 `reading`。
     – `a+` / `ab+`：`appending` & `reading`。在 `a+` / `ab+` 的基础上多了 `reading`。
 - <https://matplotlib.org/gallery.html>
+
+
+

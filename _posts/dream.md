@@ -1,8 +1,14 @@
+### 首要任务
 
-
-### 机器学习基础知识
-
-
+- 学习一个深度学习框架（Pytorch）
+- 目标检测 Pytorch 实现
+- Linux（尽量再配台电脑）
+- 多看论文：近 3 年 CVPR
+- 基础图像处理知识，巩固 OpenCV 知识（OpenCV 学堂一天一节）
+- 机器学习和深度学习的基础知识巩固
+- 算法：刷 Letcode
+- 学习 C++
+- 参加比赛
 
 ### Python
 
@@ -23,8 +29,6 @@
 ### 算法
 
 [目标检测算法](https://blog.csdn.net/v_JULY_v/article/details/80170182)
-
-
 
 ### 论文	
 
