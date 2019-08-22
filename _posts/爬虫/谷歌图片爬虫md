@@ -1,0 +1,35 @@
+```python
+from google_images_download import google_images_download  # importing the library
+
+response = google_images_download.googleimagesdownload()  # class instantiation
+
+keywords = "嘟嘴" # 多个关键词以 , 为分隔符
+arguments = {
+    "keywords": keywords,  # 关键词
+    "limit": 5000, # 数量
+    "print_urls": True, # 
+  "chromedriver":r"F:/jupyter/Pytorch/computer_vision/projects/classification/pytorch/simpleconv3/baiduspider/chromedriver.exe", # 需要下载 ChromeDriver，这个是 ChromeDriver.exe 所在的路径
+    "no_download":True # 不下载图片，
+}  # creating list of arguments
+paths = response.download(arguments=arguments)  # passing the arguments to the function
+print(paths)  # printing absolute paths of the downloaded images
+
+#  图片的地址保存在 paths 中，保存成 txt
+with open("img_result.txt", "a+") as f:
+    for kw in paths[0].keys():
+        for i in paths[0][kw]:
+            f.write(i+"\n")
+
+
+```
+
+参数不清楚，可以去 github 上看源码
+
+注意：ChromeDriver 下载地址
+
+https://chromedriver.storage.googleapis.com/index.html?path=76.0.3809.68/
+
+参考：
+
+- https://github.com/FLyingLSJ/google-images-download
+- https://google-images-download.readthedocs.io/en/latest/examples.html

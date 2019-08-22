@@ -599,21 +599,6 @@ cv2.destroyAllWindows()
 
 ![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0ywbwaqifj20ed0f00st.jpg)
 
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
 ### 图像的矩
 图像矩的应用广泛，包括模式识别、目标分类、目标识别、方位估计、图像编码与重构。
 
@@ -1022,7 +1007,3 @@ cv2.destroyAllWindows()
 
 ![](https://ws1.sinaimg.cn/large/acbcfa39ly1g0wu4984eij211k0lctu2.jpg)
 
-
-```python
-
-```
