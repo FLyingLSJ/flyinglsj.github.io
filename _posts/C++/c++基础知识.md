@@ -1,7 +1,5 @@
 [TOC]
 
-
-
 ### 基础知识
 
 - 对象 -** 对象具有状态和行为。例如：一只狗的状态 - 颜色、名称、品种，行为 - 摇动、叫唤、吃。对象是类的实例。
@@ -189,15 +187,12 @@ int main ()
 // 全局变量与局部变量
 #include <iostream>
 using namespace std;
- 
 // 全局变量声明
 int g;
- 
 int main ()
 {
   // 局部变量声明
   int a, b;
- 
   // 实际初始化
   a = 10;
   b = 20;
@@ -240,7 +235,238 @@ int main ()
 | double   | 0            |
 | pointer  | NULL         |
 
+### 常量
+
+常量是固定值，在程序执行期间不会改变。这些固定的值，又叫做**字面量**。
+
+常量可以是任何的基本数据类型，可分为整型数字、浮点数字、字符(单引号)、字符串(双引号)和布尔值。
+
+常量就像是常规的变量，只不过常量的值在定义后不能进行修改。
+
+常量定义：
+
+- #define 预处理器 `#define identifier value`
+- const 关键字 `const type variable = value;`
+
+把常量定义为大写字母形式，是一个很好的编程实践。
+
+### 运算符
+
+| 算术运算符 |      |
+| :--------: | ---- |
+| 关系运算符 |      |
+| 逻辑运算符 |      |
+|  位运算符  |      |
+| 赋值运算符 |      |
+| 杂项运算符 |      |
+
+### 循环
+
+```c++
+// while
+while(condition)
+{
+   statement(s);
+}
+
+// for
+for ( init; condition; increment )
+{
+   statement(s);
+}
+
+// do ... while 
+do
+{
+   statement(s);  // 至少会被执行一次
+
+}while( condition );
+
+```
+
+### 判断
+
+```c++
+// if
+if(boolean_expression){
+   // 如果布尔表达式为真将执行的语句
+}
+
+// if... else
+if(boolean_expression){
+   // 如果布尔表达式为真将执行的语句
+}
+else{
+   // 如果布尔表达式为假将执行的语句
+}
+
+// if .. else if .. else
+if(boolean_expression 1)
+{
+   // 当布尔表达式 1 为真时执行
+}
+else if( boolean_expression 2){
+   // 当布尔表达式 2 为真时执行
+}
+else if( boolean_expression 3){
+   // 当布尔表达式 3 为真时执行
+}
+else {
+   // 当上面条件都不为真时执行
+}
+
+// switch 可以嵌套
+switch(expression){
+    case constant-expression  :
+       statement(s);
+       break; // 可选的
+    case constant-expression  :
+       statement(s);
+       break; // 可选的
+ 
+    // 您可以有任意数量的 case 语句
+    default : // 可选的
+       statement(s);
+}
+
+// 表达式的值是由 Exp1 决定的。如果 Exp1 为真，则计算 Exp2 的值，结果即为整个 ? 表达式的值。如果 Exp1 为假，则计算 Exp3 的值，结果即为整个 ? 表达式的值。
+Exp1 ? Exp2 : Exp3;
+```
+
+- **switch** 语句中的 **expression** 必须是一个整型或枚举类型，或者是一个 class 类型，其中 class 有一个单一的转换函数将其转换为整型或枚举类型。
+- 在一个 switch 中可以有任意数量的 case 语句。每个 case 后跟一个要比较的值和一个冒号。
+- case 的 **constant-expression** 必须与 switch 中的变量具有相同的数据类型，且必须是一个常量或字面量。
+- 当被测试的变量等于 case 中的常量时，case 后跟的语句将被执行，直到遇到 **break** 语句为止。
+- 当遇到 **break** 语句时，switch 终止，控制流将跳转到 switch 语句后的下一行。
+- 不是每一个 case 都需要包含 **break**。如果 case 语句不包含 **break**，控制流将会 *继续* 后续的 case，直到遇到 break 为止。
+- 一个 **switch** 语句可以有一个可选的 **default** case，出现在 switch 的结尾。default case 可用于在上面所有 case 都不为真时执行一个任务。default case 中的 **break** 语句不是必需的。
+
+### 函数
+
+```c++
+// 函数声明
+return_type function_name( parameter list );
+
+int max(int num1, int num2);  // 例子
+int max(int, int); // 同上，可以没有参数名
+
+// 函数定义
+return_type function_name( parameter list ){
+   body of the function
+}
+/*
+	返回类型：一个函数可以返回一个值。return_type 是函数返回的值的数据类型。有些函数执行所需的操作而不返回值，在这种情况下，return_type 是关键字 void。
+	函数名称：这是函数的实际名称。函数名和参数列表一起构成了函数签名。
+	参数：参数就像是占位符。当函数被调用时，您向参数传递一个值，这个值被称为实际参数。参数列表包括函数参数的类型、顺序、数量。参数是可选的，也就是说，函数可能不包含参数。
+	函数主体：函数主体包含一组定义函数执行任务的语句。
+*/
+int max(int num1, int num2){
+    body;
+}
+
+```
+
+函数调用
+
+- 传值调用：该方法把参数的实际值复制给函数的形式参数。在这种情况下，修改函数内的形式参数对实际参数没有影响。
+
+```c++
+// 函数定义
+void swap(int x, int y){
+   int temp;
+   temp = x; /* 保存 x 的值 */
+   x = y;    /* 把 y 赋值给 x */
+   y = temp; /* 把 x 赋值给 y */
+   return;
+}
+```
+
+- 指针调用：该方法把参数的地址复制给形式参数。在函数内，该地址用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。
+
+```c++
+// 函数定义
+void swap(int *x, int *y)  // 两个指针变量
+{
+   int temp;
+   temp = *x;    /* 保存地址 x 的值 */
+   *x = *y;        /* 把 y 赋值给 x */
+   *y = temp;    /* 把 x 赋值给 y */
+   return;
+}
+```
+
+- 引用调用：该方法把参数的引用复制给形式参数。在函数内，该引用用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。
+
+```c++
+// 函数定义
+void swap(int &x, int &y)
+{
+   int temp;
+   temp = x; /* 保存地址 x 的值 */
+   x = y;    /* 把 y 赋值给 x */
+   y = temp; /* 把 x 赋值给 y  */
+  
+   return;
+}
+```
+
+### 数组
+
+```c++
+// 一维数组
+// type arrayName [ arraySize ]; 声明数组
+// type：数据类型 arraySize：数组大小（>0）
+double balance[10]; // 声明数组
+
+double balance[5] = {1000.0, 2.0, 3.4, 7.0, 50.0}; // 初始化
+double balance[] = {1000.0, 2.0, 3.4, 7.0, 50.0};  // 省略数组大小参数，故初始化的数据容量就是数组的大小
+
+
+//多维数组初始化
+int a[3][4] = {  
+ {0, 1, 2, 3} ,   /*  初始化索引号为 0 的行 */
+ {4, 5, 6, 7} ,   /*  初始化索引号为 1 的行 */
+ {8, 9, 10, 11}   /*  初始化索引号为 2 的行 */
+};
+
+int a[3][4] = {0,1,2,3,4,5,6,7,8,9,10,11}; // 效果同上
+```
+
+数组指针
+
+- 数组名本身是一个指针，数组第一个值的地址也是这个数组的地址
+
+### 字符串
+
+字符串操作的库 `#include <cstring>` 还有面向对象编程的 String 类 `#include <string>`
+
+### 指针
+
+```c++
+//常见的操作：定义一个指针变量、把变量地址赋值给指针、访问指针变量中可用地址的值。
+int    *ip;    /* 一个整型的指针 */
+double *dp;    /* 一个 double 型的指针 */
+float  *fp;    /* 一个浮点型的指针 */
+char   *ch;    /* 一个字符型的指针 */
+
+
+int  var = 20;   // 实际变量的声明
+int  *ip;        // 指针变量的声明 
+ip = &var;       // 在指针变量中存储 var 的地址
+```
+
+Null 指针：
+
+- 在变量声明的时候，如果没有确切的地址可以赋值，为指针变量赋一个 NULL 值是一个良好的编程习惯。赋为 NULL 值的指针被称为**空**指针。`int *p = Null` 
+
+指针的算术运算：四种算术运算：++、--、+、-
+
+### 引用
 
 
 
+### 时间与日期
 
+`ctime` 
+
+有四个与时间相关的类型：**clock_t、time_t、size_t** 和 **tm**。类型 clock_t、size_t 和 time_t 能够把系统时间和日期表示为某种整数。
