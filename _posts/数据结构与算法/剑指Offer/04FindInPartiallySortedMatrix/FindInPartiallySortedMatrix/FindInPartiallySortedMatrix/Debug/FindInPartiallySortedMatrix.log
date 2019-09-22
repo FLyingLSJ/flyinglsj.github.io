@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\blog\flyinglsj.github.io\_posts\数据结构与算法\剑指offer\04findinpartiallysortedmatrix\findinpartiallysortedmatrix\findinpartiallysortedmatrix\main.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\blog\flyinglsj.github.io\_posts\数据结构与算法\剑指offer\04findinpartiallysortedmatrix\findinpartiallysortedmatrix\findinpartiallysortedmatrix\main.cpp(59): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\blog\flyinglsj.github.io\_posts\数据结构与算法\剑指offer\04findinpartiallysortedmatrix\findinpartiallysortedmatrix\findinpartiallysortedmatrix\main.cpp(120): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\blog\flyinglsj.github.io\_posts\数据结构与算法\剑指offer\04findinpartiallysortedmatrix\findinpartiallysortedmatrix\findinpartiallysortedmatrix\main.cpp(126): error C3861: “Test1”: 找不到标识符
+c:\blog\flyinglsj.github.io\_posts\数据结构与算法\剑指offer\04findinpartiallysortedmatrix\findinpartiallysortedmatrix\findinpartiallysortedmatrix\main.cpp(132): error C3861: “Test7”: 找不到标识符
