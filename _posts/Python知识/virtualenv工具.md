@@ -8,9 +8,18 @@ virtualenv --version # 查看安装情况
 mkdir my_project_folder # 创建一个新工程
 cd my_project_folder # 
 virtualenv venv # 创建一个虚拟环境
+
 # 要开始使用虚拟环境，其需要被激活：
 source venv/bin/activate 
 ```
+
+```bash
+conda create -n test python==3.6 # test 是环境名
+conda activate test 
+
+```
+
+
 
 当前虚拟环境的名字会显示在提示符左侧（比如说 `(venv)您的电脑:您的工程 用户名$） 以让您知道它是激活的。从现在起，任何您使用 pip 安装的包将会放在 `venv文件夹中， 与全局安装的 Python 隔绝开。
 
