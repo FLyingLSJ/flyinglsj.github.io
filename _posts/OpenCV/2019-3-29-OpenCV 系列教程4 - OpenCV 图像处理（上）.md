@@ -261,9 +261,9 @@ cv2.THRESH_TOZERO_INV # 与上面相反，若源像素大于阈值，设置为 0
 - retval: 下面介绍
 - dst: 得到的图像
 
-![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzs9quix4pj20ez0dpacm.jpg)
+![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzs9quix4pj20ez0dpacm.jpg)
 
-![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzs9s01sd6j20fz0f977y.jpg)
+![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzs9s01sd6j20fz0f977y.jpg)
 
 
 ```python
