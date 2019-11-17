@@ -1,0 +1,8 @@
+ip,img_type,model,img_size,color_code
+127.0.0.1:2019,bmp,20190422_model_1.h5,150,RO_SP
+,jpg,1555812970.2107625.h5,150,RO_RD
+,jpeg,,,RO_LB
+,png,,,RO_WH
+,,,,RO_EG
+,,,,RO_MN
+,,,,RO_UC

@@ -292,7 +292,7 @@ cap.release()  # 记得释放掉捕获的视频
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39ly1g0m6ielzm9j20a9094q75.jpg)
+![image](https://tva4.sinaimg.cn/large/acbcfa39gy1g8jx620qjbj209c09l78r.jpg)
 
 > 效果并不是很好，是由于霍夫变换存在一定缺陷
 
@@ -442,11 +442,12 @@ cv2.destroyAllWindows()
 - cv2.calcHist(), np.histogram(), plt.hist()
 
 直方图就是灰色图像每个像素，横坐标代表像素值（0 - 255），纵坐标代表每个像素值的个数。直方图可以直观了解该图像的对比度，亮度，强度分布。
-类似：![](https://ws1.sinaimg.cn/large/acbcfa39ly1g0nk57qjnej207i0860tg.jpg)
+类似：![ ](https://ws1.sinaimg.cn/large/acbcfa39ly1g0nk57qjnej207i0860tg.jpg)
 
 ##### OpenCV 中的直方图计算函数
 
 `calcHist(images, channels, mask, histSize, ranges[, hist[, accumulate]]) -> hist`
+
 - images: uint8 或者 float32 类型的图像， 使用时格式为 [img]
 - channels: 通道标识，若图像为灰度图，则使用 [0]，彩色图用 [0], [1], [2] 分别代表蓝绿红通道的直方图
 - mask: 掩模，抽取图像中的某块区域时使用，创建的掩模白底就是目标区域，否则为黑色，mask 大小需与原图一致

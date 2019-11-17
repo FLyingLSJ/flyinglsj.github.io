@@ -135,7 +135,7 @@ cv2.destroyAllWindows()
 
 ### 凸包检测及其他轮廓特征
 
-![](image/2019-3-29-OpenCV 系列教程6 - OpenCV 图像处理（下）/acbcfa39ly1g0voy2sm32j207r08qt92.jpg)
+![](https://ws1.sinaimg.cn/large/acbcfa39ly1g0voy2sm32j207r08qt92.jpg)
 
 `convexHull(points[, hull[, clockwise[, returnPoints]]]) -> hull`       
 - points: 输入的二维点集
@@ -472,13 +472,13 @@ cv2.destroyAllWindows()
 
 ### 轮廓属性
 
-纵横比（Aspect Ratio） ![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0yvv0wz1oj2055016742.jpg)
+纵横比（Aspect Ratio） ![](image/2019-3-29-OpenCV 系列教程6 - OpenCV 图像处理（下）/acbcfa39gy1g0yvv0wz1oj2055016742.jpg)
 
-extent ：是物体面积与边界矩形面积的比值 ![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0yw1tyghtj20830160sj.jpg)
+extent ：是物体面积与边界矩形面积的比值 ![](image/2019-3-29-OpenCV 系列教程6 - OpenCV 图像处理（下）/acbcfa39gy1g0yw1tyghtj20830160sj.jpg)
 
-Solidity ：坚实度是等高线面积与其凸包面积之比。![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0yw478tnyj206n011mwy.jpg)
+Solidity ：坚实度是等高线面积与其凸包面积之比。![](image/2019-3-29-OpenCV 系列教程6 - OpenCV 图像处理（下）/acbcfa39gy1g0yw478tnyj206n011mwy.jpg)
 
-Equivalent Diameter ：等效直径是面积与等值线面积相等的圆的直径。 ![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0yw5sgmnkj20a10190sj.jpg)
+Equivalent Diameter ：等效直径是面积与等值线面积相等的圆的直径。 ![](image/2019-3-29-OpenCV 系列教程6 - OpenCV 图像处理（下）/acbcfa39gy1g0yw5sgmnkj20a10190sj.jpg)
 
 Orientation 方向是物体所指向的角度
 
@@ -859,6 +859,8 @@ main()
 cv2.waitKey(0)  # 等有键输入或者1000ms后自动将窗口消除，0表示只用键输入结束窗口
 cv2.destroyAllWindows()  # 关闭所有窗口
 ```
+
+
 
 
 ```python

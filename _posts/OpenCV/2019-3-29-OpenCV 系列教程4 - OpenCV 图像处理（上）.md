@@ -99,7 +99,7 @@ cv2.destroyAllWindows()
 
 运行结果：该段程序的作用是检测蓝色目标，同理可以检测其他颜色的目标
 **结果中存在一定的噪音，之后的章节将会去掉它**
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzr6e2twz4j211y0lcn9t.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzr6e2twz4j211y0lcn9t.jpg)
 
 
 
@@ -141,7 +141,7 @@ cv2.destroyAllWindows()
 这是物体跟踪中最简单的方法。一旦你学会了等高线的函数，你可以做很多事情，比如找到这个物体的质心，用它来跟踪这个物体，仅仅通过在相机前移动你的手来画图表，还有很多其他有趣的事情。
 
 #### 如何找到要跟踪的 HSV 值?
-[菜鸟教程 在线 HSV-> BGR 转换] (https://c.runoob.com/front-end/868)
+[菜鸟教程 在线 HSV-> BGR 转换](https://c.runoob.com/front-end/868)
 
 ![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0z3dvyykij20ap092410.jpg)
 
@@ -160,7 +160,7 @@ hsv_green
 
 
 比如要找出绿色的 HSV 值，可以使用上面的程序，得到的值取一个上下界。如上面的取下界 [H-10, 100, 100]，上界 [H+10, 255, 255]
-或者使用其他工具如 [GIMP] (https://www.gimp.org/)
+或者使用其他工具如 [GIMP](https://www.gimp.org/)
 
 #### 更多例程（跟踪红色目标和绿色目标）
 
@@ -261,9 +261,9 @@ cv2.THRESH_TOZERO_INV # 与上面相反，若源像素大于阈值，设置为 0
 - retval: 下面介绍
 - dst: 得到的图像
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzs9quix4pj20ez0dpacm.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzs9quix4pj20ez0dpacm.jpg)
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzs9s01sd6j20fz0f977y.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzs9s01sd6j20fz0f977y.jpg)
 
 
 ```python
@@ -290,7 +290,7 @@ for i in range(6):
 plt.show()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0jw7kco9gj209a068glt.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0jw7kco9gj209a068glt.jpg)
 
 #### 自适应阈值处理
 计算图像小区域的阈值。所以我们对同一幅图像的不同区域得到不同的阈值，这给我们在不同光照下的图像提供了更好的结果。
@@ -347,7 +347,7 @@ for i in range(4):
 plt.show()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0jw822a5pj209r06fwf2.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0jw822a5pj209r06fwf2.jpg)
 
 #### Otsu’s 二值化
 
@@ -387,7 +387,7 @@ for i in range(3):
 plt.show()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0jw8d0fz8j20b006bmxn.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0jw8d0fz8j20b006bmxn.jpg)
 
 ##### 原理
 
@@ -454,11 +454,11 @@ img*bin_img
 
 
 #### 更多资料
-[opencv-threshold-python] (https://www.learnopencv.com/opencv-threshold-python-cpp/)
+[opencv-threshold-python](https://www.learnopencv.com/opencv-threshold-python-cpp/)
 
-[OpenCV 图片集] (https://github.com/opencv/opencv/tree/master/samples/data)
+[OpenCV 图片集](https://github.com/opencv/opencv/tree/master/samples/data)
 
-[本节原文] (https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_thresholding/py_thresholding.html#thresholding)
+[本节原文](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_thresholding/py_thresholding.html#thresholding)
 
 ### 图像的几何变换
 学习目标：
@@ -482,7 +482,7 @@ OpenCV 提供两种变换函数：`cv2.warpAffine` 和 `cv2.warpPerspective`
     - INTER_LANCZOS4 - 8x8 像素邻域的 Lanczos 插值
 - dst: 输出图像
 
-[文档说明] (https://docs.opencv.org/2.4/modules/imgproc/doc/geometric_transformations.html?highlight=resize#resize)
+[文档说明](https://docs.opencv.org/2.4/modules/imgproc/doc/geometric_transformations.html?highlight=resize#resize)
 
 
 ```python
@@ -516,7 +516,7 @@ plt.show()
 ```
 
 运行结果
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzsbyblerbj20bh03zabj.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzsbyblerbj20bh03zabj.jpg)
 
 
 ```python
@@ -565,7 +565,7 @@ cv2.destroyAllWindows()
 ```
 
 运行结果：
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzsidqwe12j20fp0amq6b.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzsidqwe12j20fp0amq6b.jpg)
 
 ##### 旋转
 旋转角度（$\theta$）是通过一个变换矩阵变换的：
@@ -601,7 +601,7 @@ cv2.destroyAllWindows()
 ```
 
 运行结果
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzshleydevj20ut0afgtv.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzshleydevj20ut0afgtv.jpg)
 
 ##### 仿射变换
 
@@ -667,7 +667,7 @@ cv2.destroyAllWindows()
 ```
 
 运行结果：图上的点便于观察，两图中的红点是相互对应的
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzsjr8k543j20jn09gwel.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzsjr8k543j20jn09gwel.jpg)
 
 ###### 平移
 
@@ -732,7 +732,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fztoyo59vuj20ph0g8tlx.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fztoyo59vuj20ph0g8tlx.jpg)
 
 #### 更多资料
 [本节原文] (https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_geometric_transformations/py_geometric_transformations.html)
@@ -769,7 +769,7 @@ cv2.destroyAllWindows()
 - kesize: 核
 - dst: 输出图像
 - anchor：锚点，表示要处理的像素点 (-1, -1) 代表核的中心
-- normalize：表示内核是否被归一化，默认值: True **值为 True 时与 cv2.blur() 作用相同**。 ![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzyyr2xil7j20bu06k74v.jpg) 
+- normalize：表示内核是否被归一化，默认值: True **值为 True 时与 cv2.blur() 作用相同**。 ![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzyyr2xil7j20bu06k74v.jpg) 
 - borderType：图像边缘处理参数
 
 均值滤波是方框滤波归一化后的特殊情况。归一化就是要把处理的量缩放到一个范围内如 (0,1)，以便统一处理和直观量化。非归一化的方框滤波用于计算每个像素邻近内的积分特性，比如密集光流算法中用到的图像倒数的协方差矩阵。
@@ -791,7 +791,7 @@ cv2.destroyAllWindows()
 ```
 
 运行结果：
-![](https://ws1.sinaimg.cn/large/acbcfa39ly1fzyyzk0r8ij20y10lcmyf.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39ly1fzyyzk0r8ij20y10lcmyf.jpg)
 
 ###### 程序说明原理
 
@@ -840,7 +840,7 @@ print("temp:", temp, "result:", result, "copyMakeBorder:", cv2.copyMakeBorder(te
 
 `cv2.blur(src, ksize[, dst[, anchor[, borderType]]]) → dst`
 - src：源图像
-- ksize：内核大小 （k, k） ![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzx2afnfn7j20e7034jr8.jpg)
+- ksize：内核大小 （k, k） ![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzx2afnfn7j20e7034jr8.jpg)
 - anchor: 锚点 默认值点(- 1,1) 表示锚点位于内核中心。 
 - borderType：用于外推图像像素的边界模式。一般使用默认值即可。
 
@@ -860,7 +860,7 @@ cv2.destroyAllWindows()
 ```
 
 结果：
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzx1teii11j20xe0lc407.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzx1teii11j20xe0lc407.jpg)
 
 ###### 程序说明原理：图像边缘的处理
 
@@ -908,7 +908,7 @@ print("temp:", temp, "result:", result, "copyMakeBorder:", cv2.copyMakeBorder(te
 
 一维零均值高斯函数为: $G(x) = \exp (-x^2 / 2\sigma^2)$ 高斯分布参数 $\sigma$ 决定了高斯函数的宽度。
 
-对于图像处理来说，常用二维零均值离散高斯函数作平滑滤波器。二维高斯函数为： ![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzy358ep1hj208901idfn.jpg)
+对于图像处理来说，常用二维零均值离散高斯函数作平滑滤波器。二维高斯函数为： ![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzy358ep1hj208901idfn.jpg)
 
 
 高斯噪声的产生
@@ -941,7 +941,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzy2odujzfj20xm0lc40e.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzy2odujzfj20xm0lc40e.jpg) 
 
 ##### 综合例程
 
@@ -1078,7 +1078,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzz1lz6q8uj20ml09bh3j.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1fzz1lz6q8uj20ml09bh3j.jpg)
 
 ##### 双边滤波
 双边滤波（Bilateral filter）是一种非线性的滤波方法，是结合**图像的空间邻近度和像素值相似度**的一种折衷处理，同时考虑空域信息和灰度相似性，达到保边去噪的目的。具有简单、非迭代、局部的特点。
@@ -1103,7 +1103,7 @@ cv2.destroyAllWindows()
 ```
 
 运行结果
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g03w0rao2vj20md099kak.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g03w0rao2vj20md099kak.jpg)
 
 
 ### 形态学转换 1 - 腐蚀和膨胀
@@ -1161,7 +1161,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g03wwftsr3j206v055q2v.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g03wwftsr3j206v055q2v.jpg)
 
 #### 膨胀
 与腐蚀的操作相反。如果内核下的至少一个像素为“1”，则像素元素为“1”。因此它增加了图像中的白色区域或前景对象的大小增加。通常，在去除噪音的情况下，侵蚀之后是扩张。因为，侵蚀会消除白噪声，但它也会缩小我们的物体。所以我们扩大它。由于噪音消失了，它们不会再回来，但我们的物体区域会增加。它也可用于连接对象的破碎部分
@@ -1191,7 +1191,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g03xv8hdo9j206r056wee.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g03xv8hdo9j206r056wee.jpg)
 
 #### 直观例程
 
@@ -1272,7 +1272,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g04r0i2r47j206u053q2t.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g04r0i2r47j206u053q2t.jpg)
 
 #### 闭运算
 先膨胀后腐蚀，它在去除前景对象内部的小洞或对象上的小黑点时非常有用。
@@ -1302,7 +1302,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g04ssbkqt0j206t04xdfr.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g04ssbkqt0j206t04xdfr.jpg)
 
 #### 形态学梯度
 膨胀图与腐蚀图之差，**保留物体的边缘轮廓**
@@ -1324,6 +1324,7 @@ cv2.imshow("gradient ", gradient)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
+
 
 
 ```python
@@ -1351,7 +1352,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g04t6i9cymj206z054dfs.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g04t6i9cymj206z054dfs.jpg)
 
 
 ```python
@@ -1369,7 +1370,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g04to71vnoj20ch054417.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g04to71vnoj20ch054417.jpg)
 
 #### 顶帽（Top Hat）——“礼帽”
 原图像和开运算的结果之差
@@ -1400,7 +1401,7 @@ cv2.destroyAllWindows()
 ```
 
 ![](https://ws1.sinaimg.cn/large/acbcfa39ly1g065ustpqij20ck05140v.jpg)
-![](https://ws1.sinaimg.cn/large/acbcfa39ly1g065zgtrjdj206n051wec.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39ly1g065zgtrjdj206n051wec.jpg)
 
 #### 黑帽
 闭运算与原图之差
@@ -1431,7 +1432,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39ly1g0670d3lwwj20a4057jre.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39ly1g0670d3lwwj20a4057jre.jpg)
 
 #### 距离变换
 
@@ -1510,7 +1511,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39ly1g0xvl01tx9j20xl09awf9.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39ly1g0xvl01tx9j20xl09awf9.jpg)
 
 #### 结构元素
 
@@ -1608,7 +1609,7 @@ cv2.destroyAllWindows()
 ```
 
 先对图像进行缩小，再对缩小后的图像进行放大，放大后的图像变得模糊了
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0jmlpm1t3j211p0agauu.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0jmlpm1t3j211p0agauu.jpg)
 
 
 ```python
@@ -1622,14 +1623,16 @@ img.shape, down.shape, up.shape
 
 
 
-![](https://ws1.sinaimg.cn/large/acbcfa39ly1g0jl3x7x3uj21170jvb29.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39ly1g0jl3x7x3uj21170jvb29.jpg)
 
 #### 图像金字塔进行图像混合（苹果和橙子混合）
 
 ##### 基本原理
 
 ![第一步](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0jnyo8h9xj20d70ciq3u.jpg)
+
 ![第二步](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0jtlf1rw0j20cg0bidgu.jpg)
+
 ![第三步](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0jtm2svkbj20cg0fi0uc.jpg)
 
 ##### 分步例程
@@ -1697,7 +1700,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0jvy5o9a8j20hy09vakp.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0jvy5o9a8j20hy09vakp.jpg)
 
 ##### 图像金字塔函数封装
 
@@ -1769,7 +1772,7 @@ while(1):
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0jvykhqk9j209d0badky.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0jvykhqk9j209d0badky.jpg)
 
 #### 更多资料
 [Image Blending] (http://pages.cs.wisc.edu/~csverma/CS766_09/ImageMosaic/imagemosaic.html)
@@ -1797,13 +1800,13 @@ OpenCV 有三种类型的梯度滤波器或高通滤波器 Sobel, Scharr 和 Lap
 用于边缘检测的离散微分算子。结合律高斯平滑和微分求导，用来计算图像灰度函数的近似梯度，在图像的任何一点使用此算子，都会产生对应的梯度矢量或者其法向量。
 - Sobel 算子的计算过程
     - 水平变化，设图像为 I
-    ![](https://docs.opencv.org/2.4/_images/math/42c8a258fd1418ea1caf81d3c5e2374b50b3abd2.png)
+    ![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/42c8a258fd1418ea1caf81d3c5e2374b50b3abd2.png)
     - 垂直变化
-    ![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0ihv0qtu7j205d01vwe9.jpg)
+    ![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0ihv0qtu7j205d01vwe9.jpg)
     - 对图像的每个点进行处理，来得到导数的近似值
-    ![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0ihvu08rij203d00y0rh.jpg)
+    ![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0ihvu08rij203d00y0rh.jpg)
     - 有时也有下面的结果来代替
-    ![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0ihwnxqyuj203900j0lp.jpg)
+    ![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0ihwnxqyuj203900j0lp.jpg)
     
 
 Sobel 算子可以计算**一阶， 二阶， 三阶或者混合图像差分**
@@ -1876,7 +1879,7 @@ cv2.destroyAllWindows()
 
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0im9wyazhj20vb0gmk7h.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0im9wyazhj20vb0gmk7h.jpg)
 
 ##### 边缘检测函数封装
 
@@ -1921,7 +1924,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0inuxz5jxj211o0ggqpw.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0inuxz5jxj211o0ggqpw.jpg)
 
 ##### OpenCV 数据类型问题（ cv2.CV_8U  cv2.CV_32F 等）
 
@@ -1955,7 +1958,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0im0v8wmdj20h106h3yi.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0im0v8wmdj20h106h3yi.jpg)
 
 sobelx8u: 图像是经过 cv2.CV_8U 变换后的图像，一边的边缘消失了
 
@@ -2010,7 +2013,7 @@ cv2.destroyAllWindows()
 
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0iqdqh5ptj20uo0agn2o.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0iqdqh5ptj20uo0agn2o.jpg)
 
 ##### 高级用法
 
@@ -2033,7 +2036,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0iqdb3bacj20p005an0b.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0iqdb3bacj20p005an0b.jpg)
 
 ##### 轨迹条调节阈值例程
 
@@ -2074,7 +2077,7 @@ while(1):
 cv2.destroyAllWindows()
 ```
 
-![](https://ws1.sinaimg.cn/large/acbcfa39gy1g0iqcncwz7j20uu0crwr8.jpg)
+![](image/2019-3-29-OpenCV 系列教程4 - OpenCV 图像处理（上）/acbcfa39gy1g0iqcncwz7j20uu0crwr8.jpg)
 
 #### 拉普拉斯 Laplacian
 `Laplacian(src, ddepth[, dst[, ksize[, scale[, delta[, borderType]]]]]) -> dst`

@@ -680,11 +680,9 @@ cv2.destroyAllWindows()
 ```
 
 #### 更多资料
-[本节原文]
-(https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_core/py_image_arithmetics/py_image_arithmetics.html) 
+[本节原文](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_core/py_image_arithmetics/py_image_arithmetics.html) 
 
-[Python下opencv使用笔记（四）（图像的阈值处理）]
-(https://blog.csdn.net/on2way/article/details/46812121)
+[Python下opencv使用笔记（四）（图像的阈值处理）](https://blog.csdn.net/on2way/article/details/46812121)
 
 ### 性能评估和改进技术
 图像处理中，不仅需要准确，更需要快速的方法进行处理。
@@ -817,7 +815,6 @@ z = np.uint8([5])
 ```
 
     674 ns ± 66.1 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
-
 
 `y = x*x` 比 Numpy 运算快不少
 

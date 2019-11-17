@@ -1,0 +1,8 @@
+文件说明：
+address 保存历史的服务器输入
+img_type 保存历史的图片类型输入
+
+
+loading
+address,127.0.0.1:2019,
+img_type,bmp,jpg,jpeg,

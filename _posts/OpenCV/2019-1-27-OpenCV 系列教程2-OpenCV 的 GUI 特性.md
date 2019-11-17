@@ -314,17 +314,11 @@ plt.imshow(img)
 
 
 
-    <matplotlib.image.AxesImage at 0x170d39f7240>
-
-
-
-
-![png](output_37_1.png)
-
-
 ![](https://ws1.sinaimg.cn/large/acbcfa39gy1fzkg6y64ejj20ep0fcgly.jpg)
 
-作业：绘制 OpenCV 图标 ![](https://opencv-python-tutroals.readthedocs.io/en/latest/_static/opencv-logo-white.png)
+作业：绘制 OpenCV 图标
+
+ ![](https://opencv-python-tutroals.readthedocs.io/en/latest/_static/opencv-logo-white.png)
 
 #### 更多资料
 - [绘制椭圆时角度的确定](http://answers.opencv.org/question/14541/angles-in-ellipse-function/)
