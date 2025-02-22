@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>继电保护助手</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f0f0f0; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .input-group { margin: 10px 0; display: grid; grid-template-columns: 120px 200px; gap: 10px; }
+        input { padding: 5px; }
+        table { border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; min-width: 100px; }
+        th { background: #f8f9fa; }
+        .phase-select { margin: 15px 0; }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>距离保护计算器</h2>
+        <!-- 输入参数 -->
+        <div class="input-group">
+            <label>系数 m:</label>
+            <input type="number" id="m" step="0.1" value="0.95">
+            <label>Ⅰ段阻抗 Z1:</label>
+            <input type="number" id="z1" step="0.1" value="1">
+            <label>Ⅱ段阻抗 Z2:</label>
+            <input type="number" id="z2" step="0.1" value="2">
+            <label>Ⅲ段阻抗 Z3:</label>
+            <input type="number" id="z3" step="0.1" value="3">
+            <label>故障电流 I:</label>
+            <input type="number" id="I" step="0.1" value="1">
+            <label>灵敏角 θ (°):</label>
+            <input type="number" id="theta" value="82">
+            <label>零序补偿系数:</label>
+            <input type="number" id="K" value="0.67">
+        </div>
+
+        <!-- 故障类型选择 -->
+        <div class="phase-select">
+            <!-- <label>相间距离:</label> -->
+            <h5>相间距离:</h5>
+            <label><input type="radio" name="phase" value="AB" checked> AB相故障</label>
+            <label><input type="radio" name="phase" value="BC"> BC相故障</label>
+            <label><input type="radio" name="phase" value="CA"> CA相故障</label>
+        </div>
+        <label>相间距离第一态需以非故障相角度180为正序</label>
+        <body>
+            <p>计算公式：</p>
+            $$
+            U = \frac{57.74 + 2mI Z \angle 90^\circ}{2}
+            $$
+        </body>
+
+        <div class="phase-select">
+            <h5>接地距离:</h5>
+            <label><input type="radio" name="phase" value="A"> A相故障</label>
+            <label><input type="radio" name="phase" value="B"> B相故障</label>
+            <label><input type="radio" name="phase" value="C"> C相故障</label>
+        </div>
+        <body>
+                <p>计算公式：</p>
+                $$
+                U = (1 + K)mI Z \angle -\theta^\circ
+                $$
+  
+        </body>
+        
+
+        <!-- 计算结果表格 -->
+        <table id="resultTable">
+            <thead>
+                <tr>
+                    <th>参数</th>
+                    <th>Ⅰ段保护</th>
+                    <th>Ⅱ段保护</th>
+                    <th>Ⅲ段保护</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 表格内容由JavaScript动态生成 -->
+            </tbody>
+        </table>
+    </div>
+
+<script>
+// 复数转极坐标函数
+const toPolar = (real, imag) => {
+                    const r = Math.hypot(real, imag).toFixed(3);  // 幅值保留2位小数
+                    let phi = Math.atan2(imag, real) * (180 / Math.PI);
+                    phi = (phi).toFixed(3); 
+                    // phi = ((phi < 0) ? phi + 360 : phi).toFixed(1); // 角度转为 0°~360°
+                    return `${r}∠${phi}°`;
+                };
+const polarShow = (r, phi) => {
+    return `${r}∠${phi}°`;
+};
+
+function calculate() {
+    // 获取输入参数
+    const m = parseFloat(document.getElementById('m').value);
+    const Z = [parseFloat(document.getElementById('z1').value),
+              parseFloat(document.getElementById('z2').value),
+              parseFloat(document.getElementById('z3').value)];
+    const I_val = parseFloat(document.getElementById('I').value);
+    const theta = parseFloat(document.getElementById('theta').value);
+    const phase = document.querySelector('input[name="phase"]:checked').value;
+    const K = parseFloat(document.getElementById('K').value);
+
+    // 计算结果存储
+    let results = { U: [[], [], []], I: [[], [], []] };
+
+    Z.forEach((z, index) => {
+        // 计算公共项
+        const commonTerm = 2 * m * I_val * z / 2;
+        
+        // 根据故障相计算电压
+        switch(phase) {
+            case 'AB':
+                results.U[0][index] = toPolar(57.74 / 2, commonTerm);
+                results.U[1][index] = toPolar(57.74 / 2, -commonTerm);
+                results.U[2][index] = '57.74∠180°';
+                break;
+            case 'BC':
+                results.U[1][index] = toPolar(57.74 / 2, commonTerm);
+                results.U[2][index] = toPolar(57.74 / 2, -commonTerm);
+                results.U[0][index] = '57.74∠180°';
+                break;
+            case 'CA':
+                results.U[2][index] = toPolar(57.74 / 2, commonTerm);
+                results.U[0][index] = toPolar(57.74 / 2, -commonTerm);
+                results.U[1][index] = '57.74∠180°';
+                break;
+
+            case 'A':
+                results.U[0][index] = polarShow(((1+K) * m * I_val * z).toFixed(3), 0)
+                results.U[1][index] = '57.74∠-120';
+                results.U[2][index] = '57.74∠120°';
+                break;     
+            case 'B':
+                results.U[0][index] = '57.74∠0';
+                results.U[1][index] = polarShow(((1+K) * m * I_val * z).toFixed(3), -120)
+                results.U[2][index] = '57.74∠120°';
+                break;  
+            case 'C':
+                results.U[0][index] = '57.74∠0';
+                results.U[1][index] = '57.74∠-120';
+                results.U[2][index] = polarShow(((1+K) * m * I_val * z).toFixed(3), 120)
+                break;  1                                           
+        }
+
+        // 计算电流
+        const angle = theta;
+
+        switch(phase) {
+            case 'AB':
+                results.I[0][index] = polarShow(I_val, 90-angle);
+                results.I[1][index] = polarShow(I_val, -(180-(90-angle)));
+                results.I[2][index] = '0';
+                break;
+            case 'BC':
+                results.I[1][index] = polarShow(I_val, 90-angle);
+                results.I[2][index] = polarShow(I_val, -(180-(90-angle)));
+                results.I[0][index] = '0';
+                break;
+            case 'CA':
+                results.I[2][index] = polarShow(I_val, 90-angle);
+                results.I[0][index] = polarShow(I_val, -(180-(90-angle)));
+                results.I[1][index] = '0';
+                break;
+
+            case 'A':
+                results.I[0][index] = polarShow(I_val, -angle);
+                results.I[1][index] = '0';
+                results.I[2][index] = '0';
+                break;
+            case 'B':
+                results.I[0][index] = '0';
+                results.I[1][index] = polarShow(I_val, -120-angle);
+                results.I[2][index] = '0';
+                break;
+            case 'C':
+                results.I[0][index] = '0';
+                results.I[1][index] = '0';
+                results.I[2][index] = polarShow(I_val, 120-angle);
+                break;
+        }
+    });
+
+    // 更新表格
+    const tbody = document.querySelector('#resultTable tbody');
+    tbody.innerHTML = '';
+    
+    ['U_A', 'U_B', 'U_C', 'I_A', 'I_B', 'I_C'].forEach((param, rowIdx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${param}</td>`;
+        for(let i=0; i<3; i++) {
+            const value = rowIdx < 3 ? 
+                results.U[rowIdx][i] : 
+                results.I[rowIdx-3][i];
+            tr.innerHTML += `<td>${value}</td>`;
+        }
+        tbody.appendChild(tr);
+    });
+}
+
+// 添加事件监听
+document.querySelectorAll('input').forEach(input => 
+    input.addEventListener('input', calculate));
+document.querySelectorAll('input[type=radio]').forEach(radio => 
+    radio.addEventListener('change', calculate));
+
+// 初始计算
+calculate();
+</script>
+</body>
+</html>
