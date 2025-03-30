@@ -1,16 +1,130 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>距离保护计算器</title>
+    <title>继电保护助手</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background: #f0f0f0; }
-        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .input-group { margin: 10px 0; display: grid; grid-template-columns: 120px 200px; gap: 10px; }
-        input { padding: 5px; }
-        table { border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; min-width: 100px; }
-        th { background: #f8f9fa; }
-        .phase-select { margin: 15px 0; }
+        /* 基础页面样式 */
+        body { 
+            font-family: Arial, sans-serif; /* 设置页面字体 */
+            margin: 30px; /* 设置页面外边距 */
+            background: #f0f0f0; /* 设置页面背景色 */
+        }
+        
+        /* 主容器样式 */
+        .container { 
+            background: white; /* 设置容器背景色 */
+            padding: 30px; /* 设置容器内边距 */
+            border-radius: 8px; /* 设置容器圆角 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 设置容器阴影效果 */
+        }
+        
+        /* 输入组样式 - 使用网格布局 */
+        .input-group { 
+            margin: 10px 30px 50px 10px;; /* 设置输入组上右下左外边距 */
+            display: grid; /* 使用网格布局 */
+            grid-template-columns: 150px 250px; /* 设置标签和输入框的宽度 */
+            gap: 30px; /* 设置网格间距 */
+        }
+        
+        /* 输入框基础样式 */
+        input { 
+            padding: 8px; /* 设置输入框内边距 */
+            border: 1px solid #ddd; /* 设置输入框边框 */
+            border-radius: 4px; /* 设置输入框圆角 */
+        }
+        
+        /* 禁用状态的输入框样式 */
+        input:disabled { 
+            background-color: #f0f0f0; /* 设置禁用状态背景色 */
+            color: #999; /* 设置禁用状态文字颜色 */
+            cursor: not-allowed; /* 设置禁用状态鼠标样式 */
+        }
+        
+        /* 表格基础样式 */
+        table { 
+            border-collapse: collapse; /* 合并表格边框 */
+            margin-top: 20px; /* 设置表格上外边距 */
+        }
+        th, td { 
+            border: 1px solid #ddd; /* 设置单元格边框 */
+            padding: 8px; /* 设置单元格内边距 */
+            text-align: center; /* 设置文字居中对齐 */
+            min-width: 100px; /* 设置最小宽度 */
+        }
+        th { 
+            background: #f8f9fa; /* 设置表头背景色 */
+        }
+        
+        /* 故障类型选择区域样式 */
+        .phase-select { 
+            margin: 20px 0; /* 设置选择区域上下外边距 */
+            display: flex; /* 使用弹性布局 */
+            gap: 30px; /* 设置选项间距 */
+        }
+        .phase-select label { 
+            white-space: nowrap; /* 防止文字换行 */
+        }
+        
+        /* 零序补偿系数计算方式选择样式 */
+        .calc-type { 
+            display: flex; /* 使用弹性布局 */
+            align-items: center; /* 垂直居中对齐 */
+            gap: 10px; /* 设置选项间距 */
+        }
+        .calc-type label { 
+            margin-right: 30px; /* 设置选项右侧间距 */
+            white-space: nowrap; /* 防止文字换行 */
+        }
+        
+        /* 结果表格容器样式 */
+        .tables-container {
+            display: flex; /* 使用弹性布局 */
+            gap: 5px; /* 设置表格间距 */
+            margin-top: 25px; /* 设置上外边距 */
+            overflow-x: scroll; /* 允许水平滚动 */
+        }
+        
+        /* 单个结果表格样式 */
+        .result-table {
+            flex: 1; /* 平均分配空间 */
+            min-width: 60px; /* 设置最小宽度 */
+        }
+        
+        /* 表格第一列固定样式 */
+        .result-table th:first-child,
+        .result-table td:first-child {
+            position: sticky; /* 设置固定定位 */
+            left: 0; /* 固定在左侧 */
+            background: white; /* 设置背景色 */
+            z-index: 1; /* 设置层级 */
+            min-width: 80px; /* 设置最小宽度 */
+        }
+        .result-table th:first-child {
+            background: #f8f9fa; /* 设置表头背景色 */
+        }
+        
+        /* m值表头样式 */
+        .m-header {
+            background-color: #e9ecef; /* 设置背景色 */
+            font-weight: bold; /* 设置文字加粗 */
+            padding: 8px; /* 设置内边距 */
+        }
+        
+        /* 公式显示区域样式 */
+        .formula {
+            margin: 20px 0; /* 设置上下外边距 */
+            text-align: center; /* 设置文字居中对齐 */
+        }
+        .formula p {
+            margin: 10px 0; /* 设置段落上下外边距 */
+            text-align: center; /* 设置文字居中对齐 */
+        }
+        
+        /* 输入组标签样式 */
+        .input-group label {
+            white-space: nowrap; /* 防止文字换行 */
+            font-weight: bold; /* 设置文字加粗 */
+        }
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -20,37 +134,56 @@
         <h2>距离保护计算器</h2>
         <!-- 输入参数 -->
         <div class="input-group">
-            <label>系数 m:</label>
-            <input type="number" id="m" step="0.1" value="0.95">
-            <label>Ⅰ段阻抗 Z1:</label>
+            <!-- 阻抗设置 -->
+            <label>Ⅰ段阻抗 z1（Ω）:</label>
             <input type="number" id="z1" step="0.1" value="1">
-            <label>Ⅱ段阻抗 Z2:</label>
+            <label>Ⅱ段阻抗 z2（Ω）:</label>
             <input type="number" id="z2" step="0.1" value="2">
-            <label>Ⅲ段阻抗 Z3:</label>
+            <label>Ⅲ段阻抗 z3（Ω）:</label>
             <input type="number" id="z3" step="0.1" value="3">
+            
+            <!-- 故障参数设置 -->
             <label>故障电流 I:</label>
             <input type="number" id="I" step="0.1" value="1">
             <label>灵敏角 θ (°):</label>
             <input type="number" id="theta" value="82">
+            
+            <!-- 零序补偿系数设置 -->
+            <label>零序补偿系数计算方式:</label>
+            <div class="calc-type">
+                <label><input type="radio" name="K_calc" value="manual" checked> 手动输入</label>
+                <label><input type="radio" name="K_calc" value="auto"> 自动计算</label>
+            </div>
             <label>零序补偿系数:</label>
             <input type="number" id="K" value="0.67">
+            <label>线路正序阻抗定值 Z1（Ω）:</label>
+            <input type="number" id="Z1" step="0.1" value="1" disabled>
+            <label>线路零序阻抗定值 Z0（Ω）:</label>
+            <input type="number" id="Z0" step="0.1" value="3" disabled>
+
+            <!-- 零序补偿系数计算公式 -->
+            <div class="formula">
+                <p>零序补偿系数计算公式：</p>
+                $$
+                    K = \frac{Z_0-Z_1}{3Z_1}
+                $$
+            </div>
         </div>
 
         <!-- 故障类型选择 -->
         <div class="phase-select">
-            <!-- <label>相间距离:</label> -->
             <h5>相间距离:</h5>
             <label><input type="radio" name="phase" value="AB" checked> AB相故障</label>
             <label><input type="radio" name="phase" value="BC"> BC相故障</label>
             <label><input type="radio" name="phase" value="CA"> CA相故障</label>
         </div>
         <label>相间距离第一态需以非故障相角度180为正序</label>
-        <body>
-            <p>计算公式：</p>
+        <div class="formula">
+            <p>相间距离计算公式：</p>
             $$
             U = \frac{57.74 + 2mI Z \angle 90^\circ}{2}
             $$
-        </body>
+        </div>
 
         <div class="phase-select">
             <h5>接地距离:</h5>
@@ -58,157 +191,305 @@
             <label><input type="radio" name="phase" value="B"> B相故障</label>
             <label><input type="radio" name="phase" value="C"> C相故障</label>
         </div>
-        <body>
-                <p>计算公式：</p>
-                $$
-                U = (1 + K)mI Z 
-                $$
-  
-        </body>
+        <div class="formula">
+            <p>接地距离计算公式：</p>
+            $$
+            U = (1 + K)mI Z 
+            $$
+        </div>
         
 
         <!-- 计算结果表格 -->
-        <table id="resultTable">
-            <thead>
-                <tr>
-                    <th>参数</th>
-                    <th>Ⅰ段保护</th>
-                    <th>Ⅱ段保护</th>
-                    <th>Ⅲ段保护</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- 表格内容由JavaScript动态生成 -->
-            </tbody>
-        </table>
+        <div class="tables-container">
+            <!-- m=0.7 表格 -->
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>系数</th>
+                        <th colspan="3" class="m-header">m=0.7</th>
+                    </tr>
+                    <tr>
+                        <th> </th>
+                        <th>Ⅰ段保护</th>
+                        <th>Ⅱ段保护</th>
+                        <th>Ⅲ段保护</th>
+                    </tr>
+                </thead>
+                <tbody id="table1">
+                    <!-- 表格内容由JavaScript动态生成 -->
+                </tbody>
+            </table>
+
+            <!-- m=0.95 表格 -->
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>系数</th>
+                        <th colspan="3" class="m-header">m=0.95</th>
+                    </tr>
+                    <tr>
+                        <th> </th>
+                        <th>Ⅰ段保护</th>
+                        <th>Ⅱ段保护</th>
+                        <th>Ⅲ段保护</th>
+                    </tr>
+                </thead>
+                <tbody id="table2">
+                    <!-- 表格内容由JavaScript动态生成 -->
+                </tbody>
+            </table>
+
+            <!-- m=1.05 表格 -->
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>系数</th>
+                        <th colspan="3" class="m-header">m=1.05</th>
+                    </tr>
+                    <tr>
+                        <th> </th>
+                        <th>Ⅰ段保护</th>
+                        <th>Ⅱ段保护</th>
+                        <th>Ⅲ段保护</th>
+                    </tr>
+                </thead>
+                <tbody id="table3">
+                    <!-- 表格内容由JavaScript动态生成 -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
 <script>
-// 复数转极坐标函数
+/**
+ * 复数转极坐标函数
+ * @param {number} real - 实部
+ * @param {number} imag - 虚部
+ * @returns {string} 极坐标形式字符串
+ */
 const toPolar = (real, imag) => {
-                    const r = Math.hypot(real, imag).toFixed(3);  // 幅值保留2位小数
-                    let phi = Math.atan2(imag, real) * (180 / Math.PI);
-                    phi = (phi).toFixed(3); 
-                    // phi = ((phi < 0) ? phi + 360 : phi).toFixed(1); // 角度转为 0°~360°
-                    return `${r}∠${phi}°`;
-                };
+    const r = Math.hypot(real, imag).toFixed(3);  // 幅值保留3位小数
+    let phi = Math.atan2(imag, real) * (180 / Math.PI);
+    phi = (phi).toFixed(3); 
+    return `${r}∠${phi}°`;
+};
+
+/**
+ * 极坐标显示函数
+ * @param {number} r - 幅值
+ * @param {number} phi - 角度
+ * @returns {string} 极坐标形式字符串
+ */
 const polarShow = (r, phi) => {
     return `${r}∠${phi}°`;
 };
 
+/**
+ * 主计算函数
+ * 根据输入参数计算不同m值下的电压和电流值
+ */
 function calculate() {
     // 获取输入参数
-    const m = parseFloat(document.getElementById('m').value);
     const Z = [parseFloat(document.getElementById('z1').value),
               parseFloat(document.getElementById('z2').value),
               parseFloat(document.getElementById('z3').value)];
     const I_val = parseFloat(document.getElementById('I').value);
     const theta = parseFloat(document.getElementById('theta').value);
     const phase = document.querySelector('input[name="phase"]:checked').value;
-    const K = parseFloat(document.getElementById('K').value);
+    const K_calc = document.querySelector('input[name="K_calc"]:checked').value;
+    
+    // 根据计算方式启用/禁用相应的输入框
+    const K_input = document.getElementById('K');
+    const Z1_input = document.getElementById('Z1');
+    const Z0_input = document.getElementById('Z0');
+    
+    // 处理零序补偿系数的计算方式
+    if (K_calc === 'auto') {
+        K_input.disabled = true;
+        K_input.value = '';
+        Z1_input.disabled = false;
+        Z0_input.disabled = false;
+        
+        // 添加Z1和Z0的输入事件监听，实时计算K值
+        Z1_input.addEventListener('input', updateK);
+        Z0_input.addEventListener('input', updateK);
+    } else {
+        K_input.disabled = false;
+        Z1_input.disabled = true;
+        Z0_input.disabled = true;
+        Z1_input.value = '';
+        Z0_input.value = '';
+        
+        // 移除Z1和Z0的事件监听
+        Z1_input.removeEventListener('input', updateK);
+        Z0_input.removeEventListener('input', updateK);
+    }
+    
+    // 计算零序补偿系数
+    let K;
+    if (K_calc === 'auto') {
+        K = calculateK();
+    } else {
+        K = parseFloat(K_input.value);
+    }
 
     // 计算结果存储
-    let results = { U: [[], [], []], I: [[], [], []] };
+    const m_values = [0.7, 0.95, 1.05];
+    let allResults = [];
 
-    Z.forEach((z, index) => {
-        // 计算公共项
-        const commonTerm = 2 * m * I_val * z / 2;
+    // 对每个m值进行计算
+    m_values.forEach(m => {
+        let mResults = { U: [[], [], []], I: [[], [], []] };
         
-        // 根据故障相计算电压
-        switch(phase) {
-            case 'AB':
-                results.U[0][index] = toPolar(57.74 / 2, commonTerm);
-                results.U[1][index] = toPolar(57.74 / 2, -commonTerm);
-                results.U[2][index] = '57.74∠180°';
-                break;
-            case 'BC':
-                results.U[1][index] = toPolar(57.74 / 2, commonTerm);
-                results.U[2][index] = toPolar(57.74 / 2, -commonTerm);
-                results.U[0][index] = '57.74∠180°';
-                break;
-            case 'CA':
-                results.U[2][index] = toPolar(57.74 / 2, commonTerm);
-                results.U[0][index] = toPolar(57.74 / 2, -commonTerm);
-                results.U[1][index] = '57.74∠180°';
-                break;
+        // 对每段阻抗进行计算
+        Z.forEach((z, index) => {
+            // 计算公共项
+            const commonTerm = 2 * m * I_val * z / 2;
+            
+            // 根据故障相计算电压
+            switch(phase) {
+                case 'AB':
+                    mResults.U[0][index] = toPolar(57.74 / 2, commonTerm);
+                    mResults.U[1][index] = toPolar(57.74 / 2, -commonTerm);
+                    mResults.U[2][index] = '57.74∠180°';
+                    break;
+                case 'BC':
+                    mResults.U[1][index] = toPolar(57.74 / 2, commonTerm);
+                    mResults.U[2][index] = toPolar(57.74 / 2, -commonTerm);
+                    mResults.U[0][index] = '57.74∠180°';
+                    break;
+                case 'CA':
+                    mResults.U[2][index] = toPolar(57.74 / 2, commonTerm);
+                    mResults.U[0][index] = toPolar(57.74 / 2, -commonTerm);
+                    mResults.U[1][index] = '57.74∠180°';
+                    break;
 
-            case 'A':
-                results.U[0][index] = polarShow(((1+K) * m * I_val * z).toFixed(3), 0)
-                results.U[1][index] = '57.74∠-120';
-                results.U[2][index] = '57.74∠120°';
-                break;     
-            case 'B':
-                results.U[0][index] = '57.74∠0';
-                results.U[1][index] = polarShow(((1+K) * m * I_val * z).toFixed(3), -120)
-                results.U[2][index] = '57.74∠120°';
-                break;  
-            case 'C':
-                results.U[0][index] = '57.74∠0';
-                results.U[1][index] = '57.74∠-120';
-                results.U[2][index] = polarShow(((1+K) * m * I_val * z).toFixed(3), 120)
-                break;  1                                           
-        }
+                case 'A':
+                    mResults.U[0][index] = polarShow(((1+K) * m * I_val * z).toFixed(3), 0)
+                    mResults.U[1][index] = '57.74∠-120';
+                    mResults.U[2][index] = '57.74∠120°';
+                    break;     
+                case 'B':
+                    mResults.U[0][index] = '57.74∠0';
+                    mResults.U[1][index] = polarShow(((1+K) * m * I_val * z).toFixed(3), -120)
+                    mResults.U[2][index] = '57.74∠120°';
+                    break;  
+                case 'C':
+                    mResults.U[0][index] = '57.74∠0';
+                    mResults.U[1][index] = '57.74∠-120';
+                    mResults.U[2][index] = polarShow(((1+K) * m * I_val * z).toFixed(3), 120)
+                    break;
+            }
 
-        // 计算电流
-        const angle = theta;
+            // 计算电流
+            const angle = theta;
 
-        switch(phase) {
-            case 'AB':
-                results.I[0][index] = polarShow(I_val, 90-angle);
-                results.I[1][index] = polarShow(I_val, -(180-(90-angle)));
-                results.I[2][index] = '0';
-                break;
-            case 'BC':
-                results.I[1][index] = polarShow(I_val, 90-angle);
-                results.I[2][index] = polarShow(I_val, -(180-(90-angle)));
-                results.I[0][index] = '0';
-                break;
-            case 'CA':
-                results.I[2][index] = polarShow(I_val, 90-angle);
-                results.I[0][index] = polarShow(I_val, -(180-(90-angle)));
-                results.I[1][index] = '0';
-                break;
+            switch(phase) {
+                case 'AB':
+                    mResults.I[0][index] = polarShow(I_val, 90-angle);
+                    mResults.I[1][index] = polarShow(I_val, -(180-(90-angle)));
+                    mResults.I[2][index] = '0';
+                    break;
+                case 'BC':
+                    mResults.I[1][index] = polarShow(I_val, 90-angle);
+                    mResults.I[2][index] = polarShow(I_val, -(180-(90-angle)));
+                    mResults.I[0][index] = '0';
+                    break;
+                case 'CA':
+                    mResults.I[2][index] = polarShow(I_val, 90-angle);
+                    mResults.I[0][index] = polarShow(I_val, -(180-(90-angle)));
+                    mResults.I[1][index] = '0';
+                    break;
 
-            case 'A':
-                results.I[0][index] = polarShow(I_val, -angle);
-                results.I[1][index] = '0';
-                results.I[2][index] = '0';
-                break;
-            case 'B':
-                results.I[0][index] = '0';
-                results.I[1][index] = polarShow(I_val, -120-angle);
-                results.I[2][index] = '0';
-                break;
-            case 'C':
-                results.I[0][index] = '0';
-                results.I[1][index] = '0';
-                results.I[2][index] = polarShow(I_val, 120-angle);
-                break;
-        }
+                case 'A':
+                    mResults.I[0][index] = polarShow(I_val, -angle);
+                    mResults.I[1][index] = '0';
+                    mResults.I[2][index] = '0';
+                    break;
+                case 'B':
+                    mResults.I[0][index] = '0';
+                    mResults.I[1][index] = polarShow(I_val, -120-angle);
+                    mResults.I[2][index] = '0';
+                    break;
+                case 'C':
+                    mResults.I[0][index] = '0';
+                    mResults.I[1][index] = '0';
+                    mResults.I[2][index] = polarShow(I_val, 120-angle);
+                    break;
+            }
+        });
+        allResults.push(mResults);
     });
 
-    // 更新表格
-    const tbody = document.querySelector('#resultTable tbody');
-    tbody.innerHTML = '';
+    // 更新表格显示
+    const table1 = document.getElementById('table1');
+    const table2 = document.getElementById('table2');
+    const table3 = document.getElementById('table3');
     
-    ['U_A', 'U_B', 'U_C', 'I_A', 'I_B', 'I_C'].forEach((param, rowIdx) => {
+    // 清空所有表格
+    table1.innerHTML = '';
+    table2.innerHTML = '';
+    table3.innerHTML = '';
+    
+    /**
+     * 生成表格行的函数
+     * @param {string} param - 参数名称
+     * @param {number} rowIdx - 行索引
+     * @param {Object} mResult - 计算结果
+     * @returns {HTMLElement} 表格行元素
+     */
+    const generateRow = (param, rowIdx, mResult) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `<td>${param}</td>`;
+        
         for(let i=0; i<3; i++) {
             const value = rowIdx < 3 ? 
-                results.U[rowIdx][i] : 
-                results.I[rowIdx-3][i];
+                mResult.U[rowIdx][i] : 
+                mResult.I[rowIdx-3][i];
             tr.innerHTML += `<td>${value}</td>`;
         }
-        tbody.appendChild(tr);
+        
+        return tr;
+    };
+    
+    // 为每个表格添加数据
+    ['U_A', 'U_B', 'U_C', 'I_A', 'I_B', 'I_C'].forEach((param, rowIdx) => {
+        table1.appendChild(generateRow(param, rowIdx, allResults[0]));
+        table2.appendChild(generateRow(param, rowIdx, allResults[1]));
+        table3.appendChild(generateRow(param, rowIdx, allResults[2]));
     });
 }
 
-// 添加事件监听
-document.querySelectorAll('input').forEach(input => 
-    input.addEventListener('input', calculate));
-document.querySelectorAll('input[type=radio]').forEach(radio => 
-    radio.addEventListener('change', calculate));
+// 添加K值计算函数
+function calculateK() {
+    const Z1 = parseFloat(document.getElementById('Z1').value);
+    const Z0 = parseFloat(document.getElementById('Z0').value);
+    if (Z1 && Z0 && Z1 !== 0) {
+        const K = ((Z0 - Z1) / (3 * Z1)).toFixed(3);
+        document.getElementById('K').value = K;
+        return parseFloat(K);
+    }
+    return 0;
+}
+
+// 添加K值更新函数
+function updateK() {
+    if (document.querySelector('input[name="K_calc"]:checked').value === 'auto') {
+        calculateK();
+        calculate(); // 重新计算所有结果
+    }
+}
+
+// 修改事件监听部分
+document.querySelectorAll('input').forEach(input => {
+    if (input.id !== 'Z1' && input.id !== 'Z0') {
+        input.addEventListener('input', calculate);
+    }
+});
+
+document.querySelectorAll('input[type=radio]').forEach(radio => {
+    radio.addEventListener('change', calculate);
+});
 
 // 初始计算
 calculate();
